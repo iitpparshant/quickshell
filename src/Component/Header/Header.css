@@ -1,0 +1,98 @@
+/* Container for the entire header section */
+.header-container {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background-color: #f5f5f5; /* Light background for the header */
+  border-bottom: 2px solid #ddd;
+  width: 100%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative; /* Allow absolute positioning within the header */
+}
+
+/* Display area for the button and dropdowns */
+.header-display {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+/* Button container */
+.header-btn {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border: 2px solid black;
+  padding: 3px;
+  color: black;
+  border-radius: 5px;
+}
+
+/* Styling for the display button */
+.header-btn-display {
+  padding: 10px 15px;
+  background-color: white; /* Green background */
+  color: black;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  outline: none; /* Removes the default button border outline */
+}
+
+/* Button hover effect */
+
+
+/* Styling for the dropdown icon (SVG) */
+.header-icon {
+  margin-left: 10px;
+  width: 16px;
+  height: 16px;
+}
+
+/* Dropdown section, initially hidden and shown only when display is true */
+.header-dropdown {
+  position: absolute;
+  top: 100%; /* Position directly below the button */
+  left: 0;
+  margin-top: 5px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1; /* Ensure it appears above other elements */
+  min-width: 200px; /* Ensure dropdown has enough width */
+}
+
+/* Grouping and ordering section styling */
+.header-grouping,
+.header-ordering {
+  margin-bottom: 15px;
+}
+
+/* Dropdown select elements */
+.header-select {
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  cursor: pointer;
+  outline: none;
+  width: 100%; /* Ensure the dropdown fills the container */
+}
+
+/* Dropdown hover effect */
+.header-select:hover {
+  border-color: #4caf50;
+}
+
+/* Label styling */
+.header-grouping label,
+.header-ordering label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
+}

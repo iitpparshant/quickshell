@@ -1,25 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
-
+import Card from './Component/Card/Card';
+import Body from './Component/Body/Body';
+import Header from './Component/Header/Header';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchData } from './Utils/Api';
+import { useEffect } from 'react';
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+  const dispatch = useDispatch();
+  const {ticket}=useSelector(state=>state.Reducer);
+  useEffect(() => {
+    dispatch(fetchData());
+  }, [dispatch])
+  return ticket ? (
+    <div className='main'>
+    <Header/>
+    <Body/>
     </div>
-  );
+  ):""
 }
 
 export default App;

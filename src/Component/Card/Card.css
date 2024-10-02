@@ -1,0 +1,74 @@
+/* Card container */
+.card {
+  background-color: white;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid #474747;
+  transition: box-shadow 0.3s ease;
+  font-family: 'Inter', sans-serif;
+  /* width: 100%; */
+}
+
+/* Card hover effect */
+.card:hover {
+  box-shadow: 0 4px 8px rgba(11, 143, 40, 0.15);
+}
+
+.cardup{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.cardmid{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: baseline;
+  gap: 3px;
+}
+
+/* Card title section */
+.card-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 12px;
+}
+
+/* Tag container */
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px; /* Add spacing between tags */
+  align-items: center;
+}
+
+/* Individual tag item */
+.tag-item {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  padding: 4px 8px;
+  border: 1px solid #7b7777;
+  border-radius: 12px;
+  font-size: 15px;
+  color: #6b7280;
+  font-weight: 500;
+}
+.progress{
+  border: 2px solid  #909193;
+  align-items: center;
+  border-radius: 5px;
+  padding: 5px;
+  /* margin:5px; */
+}
+
+/* Dot before tag name */
+.tag-dot {
+  margin-right: 6px;
+  font-weight: bolder;
+  font-size: 30px; 
+  line-height: 1;  /* Ensure the dot is centered vertically */
+  color: rgb(82, 79, 79);
+}
