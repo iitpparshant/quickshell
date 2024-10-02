@@ -4,7 +4,7 @@ import './Card.css';
 import { GenerateIcon, PriorityIcon, StatusIcon } from '../../Utils/Helper';
 
 
-function Card({ id, mainid,name,title, tag, status, priority }) {
+function Card({ id, mainid,priorityid,name,title, tag, status, priority }) {
   const { selectData, user } = useSelector((state) => state.DataReducer);
   console.log("siojriortjovtjio",selectData)
   let priority_list = ["No priority", "Low", "Medium", "High", "Urgent"];
@@ -23,7 +23,7 @@ function Card({ id, mainid,name,title, tag, status, priority }) {
       <div className='card-tags'>
         {(user || !priority_list.includes(priority)) && (
           <div className='progress'>
-            {PriorityIcon(priority_list[id])}
+            {PriorityIcon(priority_list[priorityid])}
           </div>
         )}
 

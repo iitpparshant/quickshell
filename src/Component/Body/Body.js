@@ -28,7 +28,7 @@ const Body = () => {
             </div>
             <div>
               {ele[idx]?.value?.map((e) => (
-                <Card key={e.id} id={idx} mainid={e.id} name= {e.userName} title={e.title} tag={e.tag} status={e.status} priority={ele[idx]?.title}/>
+                <Card key={e.id} id={idx} mainid={e.id} priorityid= {e.priority} name= {e.userName} title={e.title} tag={e.tag} status={e.status} priority={ele[idx]?.title}/>
               ))}
             </div>
           </div>
