@@ -17,9 +17,7 @@ const Body = () => {
           <div key={idx} className="kanban-column">
             <div className="column-title">
               <div className='title'>
-                {/* <div style={{height:'13px'}}> */}
                   {user ? GenerateIcon(ele[idx]?.title) : (PriorityIcon(ele[idx]?.title) || StatusIcon(ele[idx]?.title))}
-                {/* </div> */}
                 <span>{ele[idx]?.title}</span>
                 <span>{ele[idx]?.value?.length}</span>
               </div>
@@ -30,7 +28,7 @@ const Body = () => {
             </div>
             <div>
               {ele[idx]?.value?.map((e) => (
-                <Card key={e.id} id={idx} mainid={e.id} title={e.title} tag={e.tag} status={e.status} priority={ele[idx]?.title}/>
+                <Card key={e.id} id={idx} mainid={e.id} name= {e.userName} title={e.title} tag={e.tag} status={e.status} priority={ele[idx]?.title}/>
               ))}
             </div>
           </div>

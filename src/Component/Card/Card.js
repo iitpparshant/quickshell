@@ -1,16 +1,18 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import './Card.css'; // Ensure to create a CSS file for the Card component
+import './Card.css'; 
 import { GenerateIcon, PriorityIcon, StatusIcon } from '../../Utils/Helper';
 
-function Card({ id, mainid, title, tag, status, priority }) {
+
+function Card({ id, mainid,name,title, tag, status, priority }) {
   const { selectData, user } = useSelector((state) => state.DataReducer);
+  console.log("siojriortjovtjio",selectData)
   let priority_list = ["No priority", "Low", "Medium", "High", "Urgent"];
   return (
     <div className='card'>
       <div className='cardup'>
         <div>{mainid}</div>
-        {!user ? GenerateIcon(priority) : ""}
+        {!user ? GenerateIcon(name) : ""}
       </div>
       <div className="cardmid">
         {(user || priority_list.includes(priority)) ? StatusIcon(status) : ""}

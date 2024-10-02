@@ -7,7 +7,6 @@ import medium from './../Image/Img - Medium Priority.svg'
 import inprogress from './../Image/in-progress.svg'
 import nopriority from './../Image/No-priority.svg'
 import urgent from './../Image/SVG - Urgent Priority colour.svg'
-import urgent1 from './../Image/SVG - Urgent Priority grey.svg'
 import todo from './../Image/To-do.svg'
 
 export const PriorityIcon=(priority)=>{
@@ -17,6 +16,8 @@ export const PriorityIcon=(priority)=>{
     case "Medium":return <img src={medium} alt="" />
     case "High":return <img src={high} alt="" />
     case "Urgent":return <img src={urgent} alt="" />
+    default:
+      return <img src={nopriority} alt="Default Priority" />;
   }
 }
 
@@ -27,6 +28,8 @@ export const StatusIcon=(priority)=>{
     case "Backlog":return <img src={backlog} alt="" />
     case "Done":return <img src={done} alt="" />
     case "Canceled":return <img src={cancel} alt="" />
+    default:
+      return <img src={cancel} alt="Default Priority" />;
   }
 }
 export const GenerateIcon = (status) => {
@@ -41,7 +44,7 @@ export const GenerateIcon = (status) => {
         width: '30px',
         height: '30px',
         borderRadius: '50%',
-        backgroundColor: 'red', // You can customize the background color
+        backgroundColor: 'red', 
         color: '#fff',
         fontSize: '16px',
         fontWeight: 'bold',

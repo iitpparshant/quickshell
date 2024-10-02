@@ -1,5 +1,4 @@
 import './App.css';
-import Card from './Component/Card/Card';
 import Body from './Component/Body/Body';
 import Header from './Component/Header/Header';
 import { useDispatch, useSelector } from 'react-redux';

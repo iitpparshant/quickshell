@@ -1,67 +1,80 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import './Header.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectedData } from '../../Utils/Api';
-import down from '../../Image/down.svg'
-import displayimg from '../../Image/Display.svg'
+import down from '../../Image/down.svg';
+import displayimg from '../../Image/Display.svg';
 
 const findGroup = () => {
   if (localStorage.getItem("group")) {
     return localStorage.getItem("group");
-  }
-  else {
+  } else {
     return "status";
   }
-}
+};
 const findOrder = () => {
   if (localStorage.getItem("order")) {
     return localStorage.getItem("order");
-  }
-  else {
+  } else {
     return "priority";
   }
-}
+};
 
 function Header() {
   const dispatch = useDispatch();
   const [display, setDisplay] = useState(false);
-  const { ticket, user } = useSelector(state => state.Reducer)
+  const { ticket, user } = useSelector((state) => state.Reducer);
   const [group, setGroup] = useState(findGroup()); // Stores the selected group value
   const [order, setOrder] = useState(findOrder()); // Stores the selected ordering value
+  const dropdownRef = useRef(null); // Reference for the dropdown
 
   const handleGrouping = (e, value) => {
     if (value) {
       setGroup(e.target.value);
-      setDisplay(!display);
       localStorage.setItem("group", e.target.value);
-    }
-    else {
+    } else {
       setOrder(e.target.value);
-      setDisplay(!display);
       localStorage.setItem("order", e.target.value);
     }
-  }
+    setDisplay(false); // Close dropdown after selection
+  };
 
   useEffect(() => {
-    if (group === "user") {
-      dispatch(selectedData(group, {
-        ticket, user
-      }, order));
-    }
-    else {
-      dispatch(selectedData(group, ticket, order));
-    }
-  }, [ticket, dispatch, group, order, user])
+    // if (group === "user") {
+      dispatch(selectedData(group, { ticket, user }, order));
+    // } else {
+    //   dispatch(selectedData(group, ticket, order));
+    // }
+  }, [ticket, dispatch, group, order, user]);
 
   const ShowOption = () => {
     setDisplay(!display);
   };
 
+  // Click outside to close dropdown
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setDisplay(false); // Close the dropdown if clicked outside
+      }
+    };
+
+    if (display) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [display]);
+
   return (
     <div className='header-container'>
-      <div className='header-display'>
+      <div className='header-display' ref={dropdownRef}>
         <div className='header-btn' onClick={ShowOption}>
-          <img className='header-icon' src={displayimg} alt="Dropdown icon" />
+          <img className='header-icon' src={displayimg} alt="Display icon" />
           <button className='header-btn-display'>Display</button>{" "}
           <img className='header-icon' src={down} alt="Dropdown icon" />
         </div>

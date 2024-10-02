@@ -3,7 +3,6 @@
   display: flex;
   flex-wrap: wrap; /* Allows columns to wrap onto the next line */
   gap: 5px; 
-  /* padding: 20px; */
   background-color: rgb(233, 237, 239);
   width: 100%;
 }
@@ -13,8 +12,7 @@
   display: flex;
   flex-direction: column;
   padding: 15px;
-  width: calc(18% - 5px); /* Set width based on available space (4 columns) */
-  /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); */
+  width: calc(18% - 5px); 
 }
 
 /* Column title (e.g., Todo, Done) */
